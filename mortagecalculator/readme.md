@@ -2,9 +2,13 @@
 
 ## File Structure
 files/prospect.txt: the prospect list file given with the description
+
 src/main/java/org/mortage/mortagecalculator: directory for the application java files
+
 src/test/java/org/mortage/mortagecalculator: directory for the test java file
+
 src/main/resources/templates: directory for the html templates for the web application
+
 Dockerfile: The dockerfile used to create the docker image
 
 ## Test locally 
