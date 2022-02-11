@@ -1,26 +1,26 @@
 # crosskey-code-test
 
 ## File Structure
-files/prospect.txt: the prospect list file given with the description
+**files/prospect.txt**: the prospect list file given with the description
 
-src/main/java/org/mortage/mortagecalculator: directory for the application java files
+**src/main/java/org/mortage/mortagecalculator**: directory for the application java files
 
-src/test/java/org/mortage/mortagecalculator: directory for the test java file
+**src/test/java/org/mortage/mortagecalculator**: directory for the test java file
 
-src/main/resources/templates: directory for the html templates for the web application
+**src/main/resources/templates**: directory for the html templates for the web application
 
-Dockerfile: The dockerfile used to create the docker image
+**Dockerfile**: The dockerfile used to create the docker image
 
 ## Test locally 
 ### Directly with Maven
-1: Command: mvnw spring-boot: run
+1: **Command:** mvnw spring-boot: run
 
 2: Once started go to your browser and use the url: http://localhost:8081/showprospects
 
 ### Building jar and running it
-1: Command: mvnw clean package
+1: **Command:** mvnw clean package
 
-2: Command: java -jar target/mortagecalculator-0.0.1.jar
+2: **Command:** java -jar target/mortagecalculator-0.0.1.jar
 
 3: Once started go to your browser and use the url: http://localhost:8081/showprospects
 
@@ -28,9 +28,9 @@ To test locally you need Maven and java 17. I used openjdk 17
 
 ## Test locally with Docker
 
-1: Command: docker build -t mortagecalculator .
+1: **Command:** docker build -t mortagecalculator .
 
-2: Command: docker run -p 8081:8081 mortagecalculator
+2: **Command:** docker run -p 8081:8081 mortagecalculator
 
 3: Once started go to your browser and use the url: http://localhost:8081/showprospects
 
