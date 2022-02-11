@@ -19,6 +19,7 @@ Dockerfile: The dockerfile used to create the docker image
 
 ### Building jar and running it
 This method will compile, build, test and run the application
+
 1: mvnw clean package
 
 2: java -jar target/mortagecalculator-0.0.1.jar
