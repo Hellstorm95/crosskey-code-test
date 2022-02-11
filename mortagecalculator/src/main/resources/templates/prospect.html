@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<script>
+			/**
+				validateForm validates the submitted prospect
+			*/
+			function validateForm() {
+				let customer = document.forms["prospectForm"]["customer"].value;
+				let totalLoan = document.forms["prospectForm"]["totalLoan"].value;
+				let interest = document.forms["prospectForm"]["interest"].value;
+				let years = document.forms["prospectForm"]["years"].value;
+				
+				// check if all fields are filled
+				console.log(customer)
+				if (customer == "") {
+					alert("Customer must be filled out");
+					return false;
+				}
+				
+				if (totalLoan == "") {
+					alert("Total loan must be filled out");
+					return false;
+				}
+				
+				if (interest == "") {
+					alert("Interest must be filled out");
+					return false;
+				}
+				
+				if (years == "") {
+					alert("Years must be filled out");
+					return false;
+				}
+				
+				// check if the loan field is a number
+				if (isNaN(totalLoan)) {
+					alert("Total Loan must be a number");
+					return false;
+				// check if the loan amount field is positive
+				} else if (Number(totalLoan) <= 0) {
+					alert("Total Loan must be positive");
+					return false;
+				}
+				
+				// check if the interest field is a number
+				if (isNaN(interest)) {
+					alert("Interest must be a number");
+					return false;
+				// check if the interest field is positive
+				} else if (Number(interest) <= 0) {
+					alert("Interest must be positive");
+					return false;
+				}
+				
+				// check if the years field is an integer
+				if (!Number.isInteger(Number(years)))  {
+					alert("Years must be an integer");
+					return false;
+				// check if the years field is positive
+				} else if (years <= 0) {
+					alert("Years must be positive");
+					return false;
+				}
+			}
+		</script>
+		<title>Prospect Form</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<h2>New Prospect:</h2>
+		<div>
+			<!--- Form for creating a new prospect --->
+			<form name="prospectForm" action="#" th:action="@{/showprospects}" th:object="${prospect}" method="post" onsubmit="return validateForm()">
+				Customer: <input name="customer" type="text" th:field="*{customer}" >
+				Total Loan (€): <input name="totalLoan" type="text" th:field="*{totalLoan}" >
+				Interest (%): <input name="interest" type="text" th:field="*{interest}">
+				Years: <input name="years" type="text" th:field="*{years}">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div>
+			<form action="#" th:action="@{/showprospects}" method="get">
+					<input type="submit" value="Back">
+			</form>
+		</div>
+	</body>
+</html>

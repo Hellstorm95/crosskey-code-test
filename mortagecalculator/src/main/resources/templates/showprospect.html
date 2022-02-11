@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<title>Show Prospects</title>
+			<style>
+				th, td {
+					border: 1px solid black;
+					border-collapse: collapse;
+				}
+				th, td {
+					padding: 5px;
+				}
+				th {
+					text-align: left;
+				}
+			</style>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<h1>Prospects</h1>
+		<div>
+			<!--- Table which shows prospects --->
+			<table>
+				<thead>
+					<tr>
+							<th> Prospect: </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${prospects.empty}">
+						<td colspan="2"> No Prospects Available </td>
+					</tr>
+					<tr th:each="prospect : ${prospects}">
+						<td><span th:text="${prospect.prospect}"> Prospect </span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<form action="#" th:action="@{/prospect}" method="get">
+				<input type="submit" value="Add Prospect">
+			</form>
+		</div>
+	</body>
+</html>
