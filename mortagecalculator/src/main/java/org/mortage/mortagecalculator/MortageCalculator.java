@@ -40,37 +40,37 @@ public class MortageCalculator {
     	try {
     		// creates a csv file parser
     		CSVParser parser = new CSVParserBuilder()
-			  .withSeparator(',')
-			  .build();
+					.withSeparator(',')
+					.build();
 
     		// create file reader. uses utf-8 encoding
     		FileReader fileReader = new FileReader(filename, StandardCharsets.UTF_8);
     		// create csv reader
-			CSVReader reader = new CSVReaderBuilder(fileReader)
-			  .withCSVParser(parser)
-			  .withSkipLines(1)
-			  .build();
+				CSVReader reader = new CSVReaderBuilder(fileReader)
+					.withCSVParser(parser)
+					.withSkipLines(1)
+					.build();
 
-			// read through the data
+				// read through the data
 		    String[] data = reader.readNext();
 		    int i = 1;
 		    while (data != null) {
 		    	// check if the line read is valid data line
-		        if (data.length == 4) {
-		        	// replace ',' with ' '
-		        	String customer = data[0].replace(',', ' ');
-		        	double totalLoan = Double.parseDouble(data[1]);
-		        	double interest = Double.parseDouble(data[2]);
-		        	int years = Integer.parseInt(data[3]);
-		        	// create a new prospect with the data read from a line 
-		        	Prospect prospect = new Prospect(customer, totalLoan, interest, years);
-		        	// create a string that represent the prospect and store it in Prospect.prospect
-		        	updateProspect(prospect, i);
-		        	i++;
-		        	// add it to the prospect list
-		        	prospectList.add(prospect);
-		        }
-		        data = reader.readNext();
+					if (data.length == 4) {
+						// replace ',' with ' '
+						String customer = data[0].replace(',', ' ');
+						double totalLoan = Double.parseDouble(data[1]);
+						double interest = Double.parseDouble(data[2]);
+						int years = Integer.parseInt(data[3]);
+						// create a new prospect with the data read from a line 
+						Prospect prospect = new Prospect(customer, totalLoan, interest, years);
+						// create a string that represent the prospect and store it in Prospect.prospect
+						updateProspect(prospect, i);
+						i++;
+						// add it to the prospect list
+						prospectList.add(prospect);
+					}
+					data = reader.readNext();
 		    }
 		    
 		    fileReader.close();
@@ -79,10 +79,10 @@ public class MortageCalculator {
     	} catch (FileNotFoundException e) {
     		e.printStackTrace();
     	} catch (IOException e) {
-			e.printStackTrace();
-		}
+				e.printStackTrace();
+			}
     	
-    	return prospectList;
+    return prospectList;
 	}
 	
 	/**
@@ -123,17 +123,17 @@ public class MortageCalculator {
 		
 		// the string representing the prospect
 		String result = 
-				"Prospect " 
-				+ i
-				+ ": "
-				+ prospect.getCustomer() 
-				+ " wants to borrow " 
-				+ prospect.getTotalLoan() 
-				+ " € for a period of "
-				+ prospect.getYears()
-				+ " years and pay "
-				+ df.format(E)
-				+ " € each month";
+			"Prospect " 
+			+ i
+			+ ": "
+			+ prospect.getCustomer() 
+			+ " wants to borrow " 
+			+ prospect.getTotalLoan() 
+			+ " € for a period of "
+			+ prospect.getYears()
+			+ " years and pay "
+			+ df.format(E)
+			+ " € each month";
 		// set the result string as an attribute for the Prospect object
 		prospect.setProspect(result);
 	}
@@ -148,13 +148,13 @@ public class MortageCalculator {
 	 * @return			b^e (b raised to the power of e)
 	 */
 	static double pow(double b, int e) {
-	    double result = 1;
-	
-	    while (e != 0) {
-	        result *= b;
-	        --e;
-	      }
-	    
-    	return result;
-    }
+		double result = 1;
+
+		while (e != 0) {
+			result *= b;
+			--e;
+		}
+		
+		return result;
+  }
 }

@@ -44,7 +44,7 @@ public class ProspectController {
 	public String showProspects(Model model) {
 		// Add the prospect list to the view
 		model.addAttribute("prospects", prospectList);
-	    return "showprospect";
+		return "showprospect";
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class ProspectController {
 		prospectList.add(prospect);
 		// Add the prospect list to the view
 		model.addAttribute("prospects", prospectList);
-	    return "showprospect";
+		return "showprospect";
 	}
 	
 }
