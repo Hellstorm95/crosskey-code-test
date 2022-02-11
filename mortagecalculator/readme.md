@@ -39,5 +39,5 @@ To test locally you need Maven and java 17. I used openjdk 17
 Link to application: http://ec2-3-122-205-235.eu-central-1.compute.amazonaws.com/showprospects
 The link worked when I implemented the application. Please Let me know if the link is not working for some reason
 
-I used windows opertating system for local testing and devlopment. 
+I used Windows OS for local testing and devlopment. 
 If you have any question, please let me know. 
