@@ -13,16 +13,14 @@ Dockerfile: The dockerfile used to create the docker image
 
 ## Test locally 
 ### Directly with Maven
-1: Command to test locally: mvnw spring-boot: run
+1: Command: mvnw spring-boot: run
 
 2: Once started go to your browser and use the url: http://localhost:8081/showprospects
 
 ### Building jar and running it
-This method will compile, build, test and run the application
+1: Command: mvnw clean package
 
-1: mvnw clean package
-
-2: java -jar target/mortagecalculator-0.0.1.jar
+2: Command: java -jar target/mortagecalculator-0.0.1.jar
 
 3: Once started go to your browser and use the url: http://localhost:8081/showprospects
 
@@ -30,9 +28,9 @@ To test locally you need Maven and java 17. I used openjdk 17
 
 ## Test locally with Docker
 
-1: docker build -t mortagecalculator .
+1: Command: docker build -t mortagecalculator .
 
-2: docker run -p 8081:8081 mortagecalculator
+2: Command: docker run -p 8081:8081 mortagecalculator
 
 3: Once started go to your browser and use the url: http://localhost:8081/showprospects
 
